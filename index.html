@@ -180,15 +180,29 @@ Mahin-A            BZS(D)     1187`;
 </script>
 <div id="diva" style="width: 100%;height: 100%;position: fixed;background-color: white;left: 0;top: 0;">
     <div style="position: fixed; width: 76%; height: 50%; top: 10%; left: 10%; background: aquamarine;">
-    <center>Database By Samir</center><br> Access Code : <br><br> <input id="pass"><br><br><button style="width:50%;height: 10%;" onclick="chk();">Done</button><br><a id="w"></a> 
+        <center>Database By Samir</center><br> Access Code : <br><br> <input autofocus id="pass"><br><br><button style="width:50%;height: 10%;" onclick="checkAccess();">Done</button><br><a id="w"></a> 
     </div>
 </div>
 <script>
-    function chk(){
-        if(document.getElementById("pass").value == "mahiadmin"){document.getElementById("diva").outerHTML = "";}
-        else{document.getElementById("w").innerHTML = "Wrong key";}
+    // Function to check access
+    function checkAccess() {
+        // Get the entered password
+        var pass = document.getElementById("pass").value;
+        
+        // List of passkeys
+        var passkeys = ["mahiadmin", "votaadmin", "ibnuladmin" , "samz"]; // Add more passkeys here
+        
+        // Check if the entered password matches any passkey
+        if (passkeys.includes(pass)) {
+            // If match found, grant access
+            document.getElementById("diva").outerHTML = "";
+        } else {
+            // If no match found, display error message
+            document.getElementById("w").innerHTML = "Wrong key";
+        }
     }
 </script>
+
 
 </body>
 </html>
