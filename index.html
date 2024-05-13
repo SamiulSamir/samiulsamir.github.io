@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Scores</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<h2>BZS Day shift section: C and D</h2>
+
+<table id="scoreTable">
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Sector</th>
+    <th>Result</th>
+  </tr>
+</table>
+
+<script>
+    const data = `Roham              BZS(C)     1262
+Antor              BZS(C)     1267
+Pritom             BZS(C)     1259
+Azmain             BZS(C)     1267
+Mehrab             BZS(C)     1227
+Samura             BZS(C)     1248
+Shuvo              BZS(C)     1245
+Al-amin            BZS(C)     1246
+Toufik             BZS(C)     1240
+Nishat-T           BZS(C)     1237
+Yousuf             BZS(C)     1232
+Borshan-C          BZS(C)     1238
+Nahid              BZS(C)     1229
+Torikul            BZS(C)     1230
+Samiul             BZS(C)     1217
+Fahim              BZS(C)     1229
+MN-sadat           BZS(C)     1237
+Sadik-B-J          BZS(C)     1190
+Ali-Hamza          BZS(C)     1228
+Wasee              BZS(C)     1217
+Arnob-R            BZS(C)     1237
+Bokkor             BZS(C)     1236
+Eyakin             BZS(C)     1185
+Mezbah             BZS(C)     1198
+M-Mushfiq          BZS(C)     1207
+A-Rafi             BZS(C)     1197
+Atiek              BZS(C)     1199
+Sadiqur-Shuvo      BZS(C)     1182
+Shanjid            BZS(C)     1187
+Borshan-joy        BZS(C)     1202
+Ahnaf              BZS(C)     1226
+Tahmidul           BZS(C)     1235
+Raiyan-Kaif        BZS(C)     1228
+sajid              BZS(C)     1215
+Akib-anwar         BZS(C)     1203
+Talha-khan         BZS(C)     1231
+Mehedi             BZS(C)     1137
+Al-Zihad           BZS(C)     1240
+Mahi               BZS(C)     1249
+Naoshad            BZS(C)     1223
+Shahadot           BZS(C)     1181
+Suaib-Siyam        BZS(C)     1167
+Robin              BZS(C)     1184
+Tafsir             BZS(C)     1188
+Yamin              BZS(C)     1207
+Rongon             BZS(C)     1156
+Mojahed            BZS(C)     1181
+Shahi              BZS(C)     1151
+Sabit-Sudaisi      BZS(C)     1155
+Kaif-Islam         BZS(C)     1196
+Ashraful           BZS(C)     1194
+Nabiul             BZS(C)     1182
+Sikor              BZS(C)     1147
+Shafin             BZS(C)     1182
+Mynul              BZS(C)     1164
+Rudro              BZS(C)     1142
+Tanvir             BZS(C)     1222
+Mugdho             BZS(C)     1164
+Araf               BZS(C)     1251
+Fardin             BZS(C)     1209
+Iram               BZS(C)     1190
+Arafat             BZS(C)     1175
+Ratul              BZS(C)     1195
+Shammo             BZS(D)     1254
+Hossain            BZS(D)     1268
+Inan               BZS(D)     1266
+Sikba              BZS(D)     1262
+Yamin              BZS(D)     1247
+Akib               BZS(D)     1266
+Maynul             BZS(D)     1259
+Shihab             BZS(D)     1262
+Al-Amin-R          BZS(D)     1272
+Shorbo             BZS(D)     1199
+Ibnul              BZS(D)     1252
+Nazim              BZS(D)     1255
+Tanvir-R           BZS(D)     1188
+Akash              BZS(D)     1261
+Hasin-S            BZS(D)     1139
+Mujahid            BZS(D)     1170
+Pollob             BZS(D)     1209
+Mahmud             BZS(D)     1219
+Opie               BZS(D)     1228
+Towkir             BZS(D)     1186
+Hasibul            BZS(D)     1234
+Ashik              BZS(D)     1238
+Nazmus-Sakib       BZS(D)     1245
+Sabbir             BZS(D)     1189
+Lim                BZS(D)     1150
+Motasin-S          BZS(D)     1179
+Azmain-Abid        BZS(D)     1163
+Siyam              BZS(D)     1148
+Fahim-F-N          BZS(D)     1155
+Abdullah           BZS(D)     1168
+Salman             BZS(D)     1204
+Heaven             BZS(D)     1158
+Parvez             BZS(D)     1187
+Farabi             BZS(D)     1171
+Atik-H             BZS(D)     1166
+Azmain-Ahannaf     BZS(D)     1146
+Nafees-Yasir       BZS(D)     1140
+Zayed              BZS(D)     1140
+Turab              BZS(D)     1105
+Wasib              BZS(D)     1167
+Sheyan             BZS(D)     1128
+Salamun            BZS(D)     1164
+Nahid              BZS(D)     1165
+Jubayer-R          BZS(D)     1132
+Wasif-m-rakib      BZS(D)     1120
+Nasim-S            BZS(D)     1099
+Sadiqul            BZS(D)     1046
+Astik              BZS(D)     1122
+Arafat             BZS(D)     1173
+Mahin-A            BZS(D)     1187`;
+
+    const table = document.getElementById('scoreTable');
+
+    // Split the data into lines
+    const lines = data.split('\n');
+
+    // Parse the data into an array of objects
+    const students = lines.map(line => {
+        const [name, sector, score] = line.split(/\s{2,}/);
+        return { name: name.trim(), sector: sector.trim(), score: parseInt(score.trim()) };
+    });
+
+    // Sort the students array by score (descending order)
+    students.sort((a, b) => b.score - a.score);
+
+    // Populate the table with sorted data
+    students.forEach((student, index) => {
+        const newRow = table.insertRow();
+        const cell0 = newRow.insertCell(0);
+        const cell1 = newRow.insertCell(1);
+        const cell2 = newRow.insertCell(2);
+        const cell3 = newRow.insertCell(3);
+        const rank = index + 1;
+        const rankText = rank === 1 ? 'First' : rank === 2 ? 'Second' : rank === 3 ? 'Third': rank === 4 ? '4th': rank === 5 ? '5th' : rank === 6 ? '6th'
+        : rank === 7 ? '7th': rank === 8 ? '8th': rank === 9 ? '9th': rank === 10 ? '10th'
+        : rank + '.';
+        cell0.textContent = rankText;
+        cell1.textContent = student.name;
+        cell2.textContent = student.sector;
+        cell3.textContent = student.score;
+    });
+</script>
+<div id="diva" style="width: 100%;height: 100%;position: fixed;background-color: white;left: 0;top: 0;">
+    <div style="position: fixed; width: 76%; height: 50%; top: 10%; left: 10%; background: aquamarine;">
+    <center>Database By Samir</center><br> Access Code : <br><br> <input id="pass"><br><br><button style="width:50%;height: 10%;" onclick="chk();">Done</button><br><a id="w"></a> 
+    </div>
+</div>
+<script>
+    function chk(){
+        if(document.getElementById("pass").value == "mahiadmin"){document.getElementById("diva").outerHTML = "";}
+        else{document.getElementById("w").innerHTML = "Wrong key";}
+    }
+</script>
+
+</body>
+</html>
